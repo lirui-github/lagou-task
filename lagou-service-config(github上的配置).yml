@@ -1,0 +1,30 @@
+spring: 
+  # 数据库连接信息
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.227.128:3306/liruitest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: root
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  # 邮件发送相关配置
+  mail:
+    host: smtp.163.com #SMTP服务器地址
+    username: lirui_wali@163.com #登陆账号
+    password: JYUCBIKJNVNYNRKV #登陆密码（或授权码）
+    properties:
+      from: lirui_wali@163.com #邮件发信人（即真实邮箱）
+      subject: 注册验证码
+      textPrefix: 您的验证码是：
+      textPostfix: ，5分钟后将过期。
+      appendix: image/bamboo.jpg
+
+# 网关限流配置
+myown:
+  ipflush:
+    monitor-period: 60  # 单位秒
+    monitor-times: 5  # 次数
